@@ -12,7 +12,7 @@ module.exports = function (app) {
     if (req.isAuthenticated())
       return next();
     else
-      res.redirect("/login")
+      res.redirect("/")
   }
   // Load when on user dashboard <<plz help>>
 
@@ -57,7 +57,7 @@ module.exports = function (app) {
   app.get("/auth/facebook/callback",
     passport.authenticate("facebook", { failureRedirect: "/" }),
     function(req, res) {
-      res.redirect("/account");
+      res.redirect("/dashboard");
   });
 
   // ----------------------------------------------------------------------- Twitter
@@ -67,7 +67,7 @@ module.exports = function (app) {
   app.get("/auth/twitter/callback",
     passport.authenticate("twitter", { failureRedirect: "/" }),
     function(req, res) {
-      res.redirect("/account");
+      res.redirect("/dashboard");
   });
 
   // ----------------------------------------------------------------------- Github
@@ -77,7 +77,7 @@ module.exports = function (app) {
   app.get("/auth/github/callback",
     passport.authenticate("github", { failureRedirect: "/" }),
     function(req, res) {
-      res.redirect("/account");
+      res.redirect("/dashboard");
   });
 
   // ----------------------------------------------------------------------- Google  
@@ -90,7 +90,7 @@ module.exports = function (app) {
   app.get("/auth/google/callback",
     passport.authenticate("google", { failureRedirect: "/" }),
     function(req, res) {
-      res.redirect("/account");
+      res.redirect("/dashboard");
   });
 
   // ----------------------------------------------------------------------- Account
